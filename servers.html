@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Серверы — GameHost Pro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Хедер -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">GameHost Pro</a>
+      <nav class="main-menu">
+        <a href="about.html">О нас</a>
+        <a href="servers.html" class="active">Серверы</a>
+        <a href="reviews.html">Отзывы</a>
+        <a href="blog.html">Блог</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Хлебные крошки (п.6) -->
+  <div class="container breadcrumbs">
+    <a href="index.html">Главная</a> / Серверы
+  </div>
+
+  <!-- Заголовок -->
+  <section class="section">
+    <div class="container">
+      <h2>Аренда игровых серверов</h2>
+      <p>Выберите игру — и получите готовый сервер за 2 минуты. Все серверы включают DDoS-защиту, резервные копии и панель управления.</p>
+
+      <!-- Фильтры по категориям (упрощённый аналог п.5) -->
+      <div class="filters">
+        <button class="filter-btn active">Все</button>
+        <button class="filter-btn">Minecraft</button>
+        <button class="filter-btn">Шутеры</button>
+        <button class="filter-btn">Выживание</button>
+        <button class="filter-btn">РП</button>
+      </div>
+
+      <!-- Товарная сетка (п.8, п.17) -->
+      <div class="products-grid">
+        <!-- Карточка 1 -->
+        <div class="product-card" data-category="Minecraft">
+          <img src="https://via.placeholder.com/300x160/1e293b/ffffff?text=Minecraft" alt="Сервер Minecraft">
+          <h3>Minecraft</h3>
+          <p>Ванила, Paper, Forge, модпаки. До 100 игроков.</p>
+          <div class="price">от 149 ₽/мес</div>
+          <a href="server-minecraft.html" class="btn">Подробнее</a>
+        </div>
+
+        <!-- Карточка 2 -->
+        <div class="product-card" data-category="Шутеры">
+          <img src="https://via.placeholder.com/300x160/1e293b/ffffff?text=CS2" alt="Сервер CS2">
+          <h3>Counter-Strike 2</h3>
+          <p>128 tick, без лагов, античит. Поддержка SourceMod.</p>
+          <div class="price">от 299 ₽/мес</div>
+          <a href="#" class="btn">Подробнее</a>
+        </div>
+
+        <!-- Карточка 3 -->
+        <div class="product-card" data-category="Выживание">
+          <img src="https://via.placeholder.com/300x160/1e293b/ffffff?text=Rust" alt="Сервер Rust">
+          <h3>Rust</h3>
+          <p>Оптимизирован под 50+ игроков. Автоматические рестарты.</p>
+          <div class="price">от 399 ₽/мес</div>
+          <a href="#" class="btn">Подробнее</a>
+        </div>
+
+        <!-- Карточка 4 -->
+        <div class="product-card" data-category="РП">
+          <img src="https://via.placeholder.com/300x160/1e293b/ffffff?text=FiveM" alt="Сервер FiveM">
+          <h3>FiveM (GTA V RP)</h3>
+          <p>Поддержка популярных RP-скриптов. Быстрая установка.</p>
+          <div class="price">от 349 ₽/мес</div>
+          <a href="#" class="btn">Подробнее</a>
+        </div>
+
+        <!-- Карточка 5 -->
+        <div class="product-card" data-category="Minecraft">
+          <img src="https://via.placeholder.com/300x160/1e293b/ffffff?text=Bedrock" alt="Minecraft Bedrock">
+          <h3>Minecraft Bedrock</h3>
+          <p>Для консолей и мобильных устройств. Кроссплатформа.</p>
+          <div class="price">от 179 ₽/мес</div>
+          <a href="#" class="btn">Подробнее</a>
+        </div>
+
+        <!-- Карточка 6 -->
+        <div class="product-card" data-category="Шутеры">
+          <img src="https://via.placeholder.com/300x160/1e293b/ffffff?text=ARK" alt="ARK: Survival Evolved">
+          <h3>ARK: Survival Evolved</h3>
+          <p>Высокая производительность даже при 70+ динозаврах.</p>
+          <div class="price">от 449 ₽/мес</div>
+          <a href="#" class="btn">Подробнее</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>GameHost Pro</h4>
+          <p>Аренда игровых серверов с 2020 года</p>
+        </div>
+        <div>
+          <h4>Серверы</h4>
+          <a href="#">Minecraft</a><br>
+          <a href="#">CS2</a><br>
+          <a href="#">Rust</a><br>
+          <a href="#">FiveM</a>
+        </div>
+        <div>
+          <h4>Поддержка</h4>
+          <a href="faq.html">FAQ</a><br>
+          <a href="#">Техподдержка</a><br>
+          <a href="legal/offer.html">Оферта</a><br>
+          <a href="legal/privacy.html">Конфиденциальность</a>
+        </div>
+        <div>
+          <h4>Контакты</h4>
+          <p>support@gamehostpro.ru</p>
+          <p>+7 (999) 123-45-67</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 GameHost Pro. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="scroll-to-top">↑</a>
+
+</body>
+</html>
