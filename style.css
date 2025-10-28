@@ -418,3 +418,24 @@ section h2 {
     display: block;
   }
 }
+
+/* === Общая иллюстрация для преимуществ === */
+.feature-image-wrapper {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.feature-image {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+
+/* Для адаптивности */
+@media (max-width: 768px) {
+  .feature-image {
+    max-width: 100%;
+  }
+}
