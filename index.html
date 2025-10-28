@@ -4,17 +4,268 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GameHost Pro — Аренда игровых серверов</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* === Общие стили === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #1e293b;
+      background-color: #f8fafc;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* === Хедер === */
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+    }
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #0f172a;
+    }
+    .main-menu a {
+      margin-left: 28px;
+      color: #475569;
+      font-weight: 500;
+    }
+    .main-menu a:hover,
+    .main-menu a.active {
+      color: #38bdf8;
+    }
+
+    /* === Hero === */
+    .hero {
+      background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.9)), url('https://via.placeholder.com/1920x600/0f172a/ffffff?text=Game+Servers') center/cover no-repeat;
+      color: white;
+      padding: 160px 0 120px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    /* === Кнопки === */
+    .btn {
+      display: inline-block;
+      padding: 12px 32px;
+      border-radius: 6px;
+      background: #38bdf8;
+      color: #0f172a;
+      font-weight: bold;
+      transition: opacity 0.2s;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    /* === Секции === */
+    section {
+      padding: 80px 0;
+    }
+    .light-bg {
+      background-color: #f1f5f9;
+    }
+    section h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+      color: #0f172a;
+    }
+
+    /* === Преимущества === */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+    }
+    .feature h3 {
+      margin: 15px 0 10px;
+      color: #0f172a;
+    }
+
+    /* === Факты === */
+    .facts-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    .fact-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+    .fact-text {
+      font-size: 1.1rem;
+      color: #475569;
+    }
+
+    /* === Продукты === */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      text-align: center;
+      padding: 20px 15px;
+    }
+    .product-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .price {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #38bdf8;
+      margin: 12px 0;
+    }
+
+    /* === Отзывы === */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .review p {
+      font-style: italic;
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+    .review-author {
+      font-weight: bold;
+      color: #334155;
+    }
+
+    /* === Форма === */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    .contact-form textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    /* === Футер === */
+    .footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 50px 0 30px;
+      margin-top: 80px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+    .footer h4 {
+      color: white;
+      margin-bottom: 15px;
+    }
+    .footer a {
+      color: #94a3b8;
+      display: block;
+      margin: 6px 0;
+    }
+    .footer a:hover {
+      color: #38bdf8;
+    }
+    .footer-bottom {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #334155;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* === Кнопка "Наверх" === */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      background: #38bdf8;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* === Адаптив === */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-wrap: wrap;
+      }
+      .main-menu {
+        margin-top: 10px;
+      }
+      .main-menu a {
+        margin: 0 12px;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- 2. Меню и навигация -->
+  <!-- 2. Меню -->
   <header class="header">
-    <div class="container">
+    <div class="container navbar">
       <a href="index.html" class="logo">GameHost Pro</a>
       <nav class="main-menu">
         <a href="about.html">О нас</a>
-        <a href="servers.html" class="active">Серверы</a>
+        <a href="server.html" class="active">Серверы</a>
         <a href="reviews.html">Отзывы</a>
         <a href="blog.html">Блог</a>
         <a href="contacts.html">Контакты</a>
@@ -27,26 +278,26 @@
     <div class="container">
       <h1>Запусти свой игровой сервер за 2 минуты</h1>
       <p>Стабильные, быстрые и защищённые серверы для Minecraft, CS2, Rust, FiveM и других игр</p>
-      <a href="servers.html" class="btn primary">Выбрать сервер</a>
+      <a href="server.html" class="btn">Выбрать сервер</a>
     </div>
   </section>
 
   <!-- 10. О компании -->
-  <section class="section" id="about">
+  <section class="section">
     <div class="container">
       <h2>О нас</h2>
-      <p>GameHost Pro — это команда геймеров и инженеров, которая с 2020 года помогает игрокам и кланам создавать идеальные серверы без технических сложностей. Мы сами играем, поэтому знаем, что важно: низкий пинг, защита от DDoS и поддержка 24/7.</p>
+      <p>GameHost Pro — это команда геймеров и инженеров, которая с 2020 года помогает игрокам и кланам создавать идеальные серверы без технических сложностей.</p>
     </div>
   </section>
 
   <!-- 11. Преимущества -->
-  <section class="section light-bg" id="advantages">
+  <section class="section light-bg">
     <div class="container">
       <h2>Почему выбирают нас</h2>
       <div class="features-grid">
         <div class="feature">
           <h3>⚡ Мгновенный запуск</h3>
-          <p>Сервер готов к игре сразу после оплаты — без ожидания.</p>
+          <p>Сервер готов к игре сразу после оплаты.</p>
         </div>
         <div class="feature">
           <h3>🛡️ DDoS-защита</h3>
@@ -56,16 +307,12 @@
           <h3>🔧 Панель управления</h3>
           <p>Интуитивная панель: перезагрузка, бэкапы, установка модов — в один клик.</p>
         </div>
-        <div class="feature">
-          <h3>💬 Поддержка 24/7</h3>
-          <p>Поможем с настройкой, даже если вы новичок.</p>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- 13. Факты с цифрами -->
-  <section class="section" id="facts">
+  <!-- 13. Факты -->
+  <section class="section">
     <div class="container">
       <div class="facts-grid">
         <div class="fact">
@@ -85,7 +332,7 @@
   </section>
 
   <!-- 16. Продукты -->
-  <section class="section light-bg" id="products">
+  <section class="section light-bg">
     <div class="container">
       <h2>Популярные серверы</h2>
       <div class="products-grid">
@@ -94,28 +341,28 @@
           <h3>Minecraft</h3>
           <p>Ванила, Paper, Forge, модпаки</p>
           <div class="price">от 149 ₽/мес</div>
-          <a href="server-minecraft.html" class="btn">Подробнее</a>
+          <a href="server.html" class="btn">Подробнее</a>
         </div>
         <div class="product-card">
           <img src="https://via.placeholder.com/300x160/1e293b/ffffff?text=CS2" alt="CS2">
           <h3>CS2</h3>
           <p>128 tick, без лагов, античит</p>
           <div class="price">от 299 ₽/мес</div>
-          <a href="#" class="btn">Подробнее</a>
+          <a href="server.html" class="btn">Подробнее</a>
         </div>
         <div class="product-card">
           <img src="https://via.placeholder.com/300x160/1e293b/ffffff?text=Rust" alt="Rust">
           <h3>Rust</h3>
           <p>Оптимизирован под 50+ игроков</p>
           <div class="price">от 399 ₽/мес</div>
-          <a href="#" class="btn">Подробнее</a>
+          <a href="server.html" class="btn">Подробнее</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 21. Отзывы -->
-  <section class="section" id="reviews">
+  <section class="section">
     <div class="container">
       <h2>Отзывы клиентов</h2>
       <div class="reviews-grid">
@@ -131,21 +378,21 @@
     </div>
   </section>
 
-  <!-- 22. Форма заявки -->
-  <section class="section light-bg" id="form">
+  <!-- 22. Форма -->
+  <section class="section light-bg">
     <div class="container">
       <h2>Оставьте заявку — подберём сервер бесплатно</h2>
       <form class="contact-form">
         <input type="text" placeholder="Ваше имя" required>
         <input type="email" placeholder="Email или Telegram" required>
         <textarea placeholder="Какой сервер нужен? (игра, кол-во игроков и т.д.)"></textarea>
-        <button type="submit" class="btn primary">Отправить</button>
+        <button type="submit" class="btn">Отправить</button>
       </form>
     </div>
   </section>
 
   <!-- 29. Контакты -->
-  <section class="section" id="contacts">
+  <section class="section">
     <div class="container">
       <h2>Контакты</h2>
       <p>📧 support@gamehostpro.ru</p>
@@ -164,15 +411,13 @@
         </div>
         <div>
           <h4>Серверы</h4>
-          <a href="#">Minecraft</a><br>
-          <a href="#">CS2</a><br>
-          <a href="#">Rust</a><br>
-          <a href="#">FiveM</a>
+          <a href="server.html">Minecraft</a><br>
+          <a href="server.html">CS2</a><br>
+          <a href="server.html">Rust</a>
         </div>
         <div>
           <h4>Поддержка</h4>
           <a href="faq.html">FAQ</a><br>
-          <a href="#">Техподдержка</a><br>
           <a href="legal/offer.html">Оферта</a><br>
           <a href="legal/privacy.html">Конфиденциальность</a>
         </div>
@@ -188,7 +433,7 @@
     </div>
   </footer>
 
-  <!-- 4. Кнопка «Наверх» -->
+  <!-- 4. Кнопка "Наверх" -->
   <a href="#" class="scroll-to-top">↑</a>
 
 </body>
