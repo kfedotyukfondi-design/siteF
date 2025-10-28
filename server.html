@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Серверы — GameHost Pro</title>
+  <style>
+    /* === Общие стили === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #1e293b;
+      background-color: #f8fafc;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* === Хедер === */
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+    }
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #0f172a;
+    }
+    .main-menu a {
+      margin-left: 28px;
+      color: #475569;
+      font-weight: 500;
+    }
+    .main-menu a:hover,
+    .main-menu a.active {
+      color: #38bdf8;
+    }
+
+    /* === Хлебные крошки === */
+    .breadcrumbs {
+      padding: 15px 0;
+      font-size: 0.95rem;
+      color: #64748b;
+    }
+    .breadcrumbs a {
+      color: #38bdf8;
+    }
+
+    /* === Фильтры === */
+    .category-filters {
+      display: flex;
+      gap: 10px;
+      margin: 25px 0 35px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .category-btn {
+      padding: 8px 16px;
+      background: #e2e8f0;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .category-btn:hover,
+    .category-btn.active {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    /* === Товарная сетка === */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    .product-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+    .product-card h3 {
+      margin: 15px 0 10px;
+      color: #0f172a;
+      font-size: 1.2rem;
+    }
+    .product-card p {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-bottom: 15px;
+    }
+    .price {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #38bdf8;
+      margin: 10px 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 6px;
+      background: #38bdf8;
+      color: #0f172a;
+      font-weight: bold;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    /* === Футер === */
+    .footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 50px 0 30px;
+      margin-top: 80px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+    .footer h4 {
+      color: white;
+      margin-bottom: 15px;
+    }
+    .footer a {
+      color: #94a3b8;
+      display: block;
+      margin: 6px 0;
+    }
+    .footer a:hover {
+      color: #38bdf8;
+    }
+    .footer-bottom {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #334155;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* === Кнопка "Наверх" === */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      background: #38bdf8;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* === Адаптив === */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-wrap: wrap;
+      }
+      .main-menu {
+        margin-top: 10px;
+      }
+      .main-menu a {
+        margin: 0 12px;
+      }
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Хедер -->
+  <header class="header">
+    <div class="container navbar">
+      <a href="index.html" class="logo">GameHost Pro</a>
+      <nav class="main-menu">
+        <a href="about.html">О нас</a>
+        <a href="server.html" class="active">Серверы</a>
+        <a href="reviews.html">Отзывы</a>
+        <a href="blog.html">Блог</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Хлебные крошки -->
+  <div class="container breadcrumbs">
+    <a href="index.html">Главная</a> / Серверы
+  </div>
+
+  <!-- Заголовок -->
+  <section class="section">
+    <div class="container">
+      <h2 style="text-align:center; margin-bottom:10px;">Выберите игру — и получите готовый сервер за 2 минуты.</h2>
+
+      <!-- Фильтры -->
+      <div class="category-filters">
+        <button class="category-btn active" data-category="all">Все</button>
+        <button class="category-btn" data-category="shooter">Шутеры</button>
+        <button class="category-btn" data-category="survival">Выживание</button>
+        <button class="category-btn" data-category="rp">РП</button>
+      </div>
+
+      <!-- Товарная сетка -->
+      <div class="products-grid">
+        <!-- Minecraft -->
+        <div class="product-card" data-category="survival">
+          <img src="https://via.placeholder.com/300x160/1e293b/ffffff?text=Minecraft" alt="Minecraft">
+          <h3>Minecraft</h3>
+          <p>Ванила, Paper, Forge, модпаки</p>
+          <div class="price">от 149 ₽/мес</div>
+          <a href="server-minecraft.html" class="btn">Подробнее</a>
+        </div>
+
+        <!-- CS2 -->
+        <div class="product-card" data-category="shooter">
+          <img src="https://via.placeholder.com/300x160/1e293b/ffffff?text=CS2" alt="CS2">
+          <h3>CS2</h3>
+          <p>128 tick, без лагов, античит</p>
+          <div class="price">от 299 ₽/мес</div>
+          <a href="server-cs2.html" class="btn">Подробнее</a>
+        </div>
+
+        <!-- Rust -->
+        <div class="product-card" data-category="survival">
+          <img src="https://via.placeholder.com/300x160/1e293b/ffffff?text=Rust" alt="Rust">
+          <h3>Rust</h3>
+          <p>Оптимизирован под 50+ игроков</p>
+          <div class="price">от 399 ₽/мес</div>
+          <a href="server-rust.html" class="btn">Подробнее</a>
+        </div>
+
+        <!-- FiveM -->
+        <div class="product-card" data-category="rp">
+          <img src="https://via.placeholder.com/300x160/1e293b/ffffff?text=FiveM" alt="FiveM">
+          <h3>FiveM (GTA V RP)</h3>
+          <p>Поддержка популярных RP-скриптов</p>
+          <div class="price">от 349 ₽/мес</div>
+          <a href="server-fivem.html" class="btn">Подробнее</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>GameHost Pro</h4>
+          <p>Аренда игровых серверов с 2020 года</p>
+        </div>
+        <div>
+          <h4>Серверы</h4>
+          <a href="server-minecraft.html">Minecraft</a><br>
+          <a href="server-cs2.html">CS2</a><br>
+          <a href="server-rust.html">Rust</a><br>
+          <a href="server-fivem.html">FiveM</a>
+        </div>
+        <div>
+          <h4>Поддержка</h4>
+          <a href="faq.html">FAQ</a><br>
+          <a href="legal/offer.html">Оферта</a><br>
+          <a href="legal/privacy.html">Конфиденциальность</a>
+        </div>
+        <div>
+          <h4>Контакты</h4>
+          <p>support@gamehostpro.ru</p>
+          <p>+7 (999) 123-45-67</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 GameHost Pro. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="scroll-to-top">↑</a>
+
+  <!-- JavaScript для фильтров -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const categoryButtons = document.querySelectorAll('.category-btn');
+      const productCards = document.querySelectorAll('.product-card');
+
+      categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Убираем активный класс со всех кнопок
+          categoryButtons.forEach(btn => btn.classList.remove('active'));
+          // Добавляем активный класс на выбранную кнопку
+          button.classList.add('active');
+
+          const category = button.getAttribute('data-category');
+
+          // Показываем/скрываем карточки
+          productCards.forEach(card => {
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
