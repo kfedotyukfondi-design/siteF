@@ -117,3 +117,57 @@
   color: #0f172a;
 }
 
+/* Reviews */
+.review-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-bottom: 25px;
+}
+.review-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  float: left;
+  margin-right: 20px;
+  object-fit: cover;
+}
+.review-author {
+  margin-top: 15px;
+  font-size: 0.95rem;
+}
+.review-author a {
+  color: #38bdf8;
+}
+
+/* Blog */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+.blog-post img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Contacts */
+.contact-info {
+  background: #f1f5f9;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+.contact-info a {
+  color: #38bdf8;
+}
+.map-placeholder {
+  background: #f8fafc;
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 20px;
+}
