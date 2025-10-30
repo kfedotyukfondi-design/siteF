@@ -1,4 +1,209 @@
-/* === Отзывы и фильтры === */
+/* === Сброс и общие настройки === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #1e293b;
+  background-color: #f8fafc;
+}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* === Хедер и меню (п.2, п.3, п.9) === */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+}
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #0f172a;
+}
+.main-menu a {
+  margin-left: 28px;
+  color: #475569;
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none; /* Убираем подчеркивание */
+}
+.main-menu a:hover,
+.main-menu a.active {
+  color: #38bdf8;
+  font-weight: bold;
+}
+
+/* === Хлебные крошки (п.6) === */
+.breadcrumbs {
+  padding: 15px 0;
+  font-size: 0.95rem;
+  color: #64748b;
+}
+.breadcrumbs a {
+  color: #38bdf8;
+}
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+/* === Первый экран (п.1) === */
+.hero {
+  background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.9)),
+    url('images/hero-bg.jpg') center/cover no-repeat;
+  color: white;
+  padding: 160px 0 120px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+/* === Кнопки === */
+.btn {
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 6px;
+  background: #38bdf8;
+  color: #0f172a;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* === Секции === */
+section {
+  padding: 80px 0;
+}
+.light-bg {
+  background-color: #f1f5f9;
+}
+section h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: #0f172a;
+}
+
+/* === Преимущества (п.11) === */
+.feature-image-wrapper {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.feature-image {
+  width: 100%;
+  max-width: 100%;
+  max-height: 300px;
+  min-height: 200px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  object-position: center;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+}
+.feature h3 {
+  margin: 15px 0 10px;
+  color: #0f172a;
+}
+
+/* === Факты с цифрами (п.13) === */
+.facts-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.fact-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #38bdf8;
+}
+.fact-text {
+  font-size: 1.1rem;
+  color: #475569;
+}
+
+/* === Товарная сетка и фильтры (п.5, п.8) === */
+.category-filters {
+  display: flex;
+  gap: 10px;
+  margin: 25px 0 35px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.category-btn {
+  padding: 8px 16px;
+  background: #e2e8f0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.category-btn:hover,
+.category-btn.active {
+  background: #38bdf8;
+  color: #0f172a;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+.product-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  padding: 20px 15px;
+}
+.product-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #38bdf8;
+  margin: 12px 0;
+}
+
+/* === Отзывы (п.21) === */
 .reviews-filters {
   background: #f1f5f9;
   padding: 20px;
@@ -20,13 +225,16 @@
   font-size: 1rem;
 }
 
+.reviews-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
 .review-card {
   background: white;
   padding: 25px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  margin-bottom: 25px;
-  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 .review-card img {
   width: 80px;
@@ -51,21 +259,212 @@
 }
 .review-meta .review-social {
   color: #38bdf8;
-  text-decoration: none;
 }
 .review-meta .review-social:hover {
   text-decoration: underline;
 }
 
-/* Адаптив */
+/* === Формы (п.22) === */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.contact-form textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+/* === FAQ (п.23) === */
+.faq-list {
+  margin-top: 30px;
+}
+.faq-item {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border-left: 4px solid #38bdf8;
+}
+.faq-item h3 {
+  margin-bottom: 10px;
+  color: #0f172a;
+}
+
+/* === Блог (п.24–26) === */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+.blog-post img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* === Контакты (п.29) === */
+.contact-info {
+  background: #f1f5f9;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+.contact-info a {
+  color: #38bdf8;
+}
+.map-placeholder {
+  background: #f8fafc;
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/* === Карточка товара (п.12, п.16) === */
+.product-detail {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.product-image {
+  width: 100%;
+  border-radius: 10px;
+  margin: 25px 0;
+}
+.features-list {
+  background: #f1f5f9;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 25px 0;
+  list-style: none;
+}
+.features-list li {
+  margin: 10px 0;
+  padding-left: 24px;
+}
+.scenarios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin: 25px 0;
+}
+.scenario h3 {
+  color: #0f172a;
+  margin: 15px 0 10px;
+}
+.price-block {
+  text-align: center;
+  margin: 30px 0;
+}
+.price-block .price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+/* === Партнёры (п.14) === */
+.partners {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 30px 0;
+}
+.partner-logo {
+  background: #e2e8f0;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #0f172a;
+}
+
+/* === Футер (п.30) === */
+.footer {
+  background: #0f172a;
+  color: #cbd5e1;
+  padding: 50px 0 30px;
+  margin-top: 80px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+.footer h4 {
+  color: white;
+  margin-bottom: 15px;
+}
+.footer a {
+  color: #94a3b8;
+  display: block;
+  margin: 6px 0;
+}
+.footer a:hover {
+  color: #38bdf8;
+}
+.footer-bottom {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #334155;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* === Кнопка "Наверх" (п.4) === */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  background: #38bdf8;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* === Адаптивность === */
 @media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+  .main-menu {
+    margin-top: 10px;
+  }
+  .main-menu a {
+    margin: 0 12px;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .features-grid,
+  .facts-grid,
+  .scenarios,
+  .blog-grid,
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
   .review-card img {
     float: none;
     margin-right: 0;
     margin-bottom: 15px;
     display: block;
   }
-  .review-meta {
-    justify-content: center;
+  .feature-image {
+    max-height: 200px;
+    min-height: 150px;
   }
 }
