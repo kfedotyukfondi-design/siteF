@@ -468,3 +468,24 @@ section h2 {
     min-height: 150px;
   }
 }
+
+/* === Хлебные крошки (п.6) === */
+.breadcrumbs {
+  padding: 15px 0;
+  font-size: 0.95rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.breadcrumbs a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 500;
+}
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+.breadcrumbs span {
+  margin: 0 8px;
+  color: #64748b;
+}
