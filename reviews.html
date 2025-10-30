@@ -8,12 +8,13 @@
 </head>
 <body>
 
+  <!-- Хедер -->
   <header class="header">
-    <div class="container">
+    <div class="container navbar">
       <a href="index.html" class="logo">GameHost Pro</a>
       <nav class="main-menu">
         <a href="about.html">О нас</a>
-        <a href="servers.html">Серверы</a>
+        <a href="server.html">Серверы</a>
         <a href="reviews.html" class="active">Отзывы</a>
         <a href="blog.html">Блог</a>
         <a href="contacts.html">Контакты</a>
@@ -21,6 +22,7 @@
     </div>
   </header>
 
+  <!-- Хлебные крошки (п.6) -->
   <div class="container breadcrumbs">
     <a href="index.html">Главная</a> / Отзывы
   </div>
@@ -28,46 +30,68 @@
   <section class="section">
     <div class="container">
       <h1>Отзывы клиентов</h1>
-      <p>Реальные отзывы от игроков, кланов и проектов. Все отзывы — от живых пользователей. Ссылки ведут на их профили в соцсетях.</p>
+      <p>Реальные отзывы от игроков, кланов и проектов. Все отзывы — от живых пользователей.</p>
 
-      <div class="reviews-grid">
+      <!-- Фильтры и сортировка (п.5) -->
+      <div class="reviews-filters">
+        <div class="filter-group">
+          <label>Сортировать по:</label>
+          <select id="sort-by">
+            <option value="date">Дате добавления</option>
+            <option value="social">Соц. сети</option>
+            <option value="game">Игре</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Список отзывов -->
+      <div class="reviews-list" id="reviews-list">
         <!-- Отзыв 1 -->
-        <div class="review-card">
-          <img src="https://via.placeholder.com/80x80/38bdf8/ffffff?text=D" alt="Дмитрий">
+        <div class="review-card" data-date="2025-04-10" data-social="telegram" data-game="cs2">
+          <img src="images/avatar-dmitry.png" alt="Дмитрий">
           <p>«Запустил сервер для CS2-клана за 5 минут. Поддержка помогла настроить SourceMod и античит. Лучший хостинг за эти деньги!»</p>
-          <div class="review-author">
-            <strong>Дмитрий</strong><br>
-            <a href="#" target="_blank">@phantom_cs</a> (Telegram)
+          <div class="review-meta">
+            <span class="review-author">— Дмитрий</span>
+            <span class="review-date">10 апреля 2025</span>
+            <span class="review-game">CS2</span>
+            <a href="#" target="_blank" class="review-social">Telegram</a>
           </div>
         </div>
 
         <!-- Отзыв 2 -->
-        <div class="review-card">
-          <img src="https://via.placeholder.com/80x80/38bdf8/ffffff?text=A" alt="Анна">
+        <div class="review-card" data-date="2025-03-22" data-social="instagram" data-game="minecraft">
+          <img src="images/avatar-anna.png" alt="Анна">
           <p>«Семья играет в Minecraft уже год. Бэкапы спасли мир после краша. Очень рады, что выбрали вас!»</p>
-          <div class="review-author">
-            <strong>Анна</strong><br>
-            <a href="#" target="_blank">@anna_mc</a> (Instagram)
+          <div class="review-meta">
+            <span class="review-author">— Анна</span>
+            <span class="review-date">22 марта 2025</span>
+            <span class="review-game">Minecraft</span>
+            <a href="#" target="_blank" class="review-social">Instagram</a>
           </div>
         </div>
 
         <!-- Отзыв 3 -->
-        <div class="review-card">
-          <img src="https://via.placeholder.com/80x80/38bdf8/ffffff?text=R" alt="Роман">
+        <div class="review-card" data-date="2025-02-15" data-social="discord" data-game="fivem">
+          <img src="images/avatar-roman.png" alt="Роман">
           <p>«Наш RP-сервер FiveM работает без простоев с 2022 года. DDoS-атаки отбиваются автоматически. Спасибо за стабильность!»</p>
-          <div class="review-author">
-            <strong>Роман</strong><br>
-            <a href="#" target="_blank">LSO_RP</a> (Discord)
+          <div class="review-meta">
+            <span class="review-author">— Роман</span>
+            <span class="review-date">15 февраля 2025</span>
+            <span class="review-game">FiveM</span>
+            <a href="#" target="_blank" class="review-social">Discord</a>
           </div>
         </div>
-      </div>
 
-      <!-- Видеоотзыв (п.21) -->
-      <div class="video-review">
-        <h2>Видеоотзыв от клана «Phantom»</h2>
-        <p>Как они запустили турнирный сервер за 10 минут:</p>
-        <div class="video-placeholder">
-          [Видео: YouTube / Vimeo — вставьте iframe при публикации]
+        <!-- Отзыв 4 -->
+        <div class="review-card" data-date="2025-01-30" data-social="vk" data-game="rust">
+          <img src="images/avatar-alex.png" alt="Алексей">
+          <p>«Сервер Rust для нашего клана работает идеально. Даже при 60 игроках — никаких лагов. Спасибо!»</p>
+          <div class="review-meta">
+            <span class="review-author">— Алексей</span>
+            <span class="review-date">30 января 2025</span>
+            <span class="review-game">Rust</span>
+            <a href="#" target="_blank" class="review-social">ВКонтакте</a>
+          </div>
         </div>
       </div>
     </div>
@@ -83,15 +107,14 @@
         </div>
         <div>
           <h4>Серверы</h4>
-          <a href="servers.html">Minecraft</a><br>
-          <a href="servers.html">CS2</a><br>
-          <a href="servers.html">Rust</a><br>
-          <a href="servers.html">FiveM</a>
+          <a href="server-minecraft.html">Minecraft</a><br>
+          <a href="server-cs2.html">CS2</a><br>
+          <a href="server-rust.html">Rust</a><br>
+          <a href="server-fivem.html">FiveM</a>
         </div>
         <div>
           <h4>Поддержка</h4>
           <a href="faq.html">FAQ</a><br>
-          <a href="#">Техподдержка</a><br>
           <a href="legal/offer.html">Оферта</a><br>
           <a href="legal/privacy.html">Конфиденциальность</a>
         </div>
@@ -108,6 +131,41 @@
   </footer>
 
   <a href="#" class="scroll-to-top">↑</a>
+
+  <!-- JavaScript для сортировки -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const sortSelect = document.getElementById('sort-by');
+      const reviewsList = document.getElementById('reviews-list');
+      const reviews = Array.from(reviewsList.children);
+
+      sortSelect.addEventListener('change', () => {
+        const sortBy = sortSelect.value;
+
+        const sorted = [...reviews].sort((a, b) => {
+          let aVal, bVal;
+
+          if (sortBy === 'date') {
+            aVal = new Date(a.dataset.date);
+            bVal = new Date(b.dataset.date);
+            return bVal - aVal; // новые выше
+          } else if (sortBy === 'social') {
+            aVal = a.dataset.social;
+            bVal = b.dataset.social;
+          } else if (sortBy === 'game') {
+            aVal = a.dataset.game;
+            bVal = b.dataset.game;
+          }
+
+          return aVal.localeCompare(bVal);
+        });
+
+        // Очистить и вставить отсортированные
+        reviewsList.innerHTML = '';
+        sorted.forEach(review => reviewsList.appendChild(review));
+      });
+    });
+  </script>
 
 </body>
 </html>
