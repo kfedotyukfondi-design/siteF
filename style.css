@@ -53,11 +53,12 @@ a {
   font-weight: bold;
 }
 
-/* Хлебные крошки (п.6) */
+/* === Хлебные крошки (п.6) === */
 .breadcrumbs {
   padding: 15px 0;
   font-size: 0.95rem;
   color: #64748b;
+  background: #f8fafc; /* чтобы точно был виден */
 }
 .breadcrumbs a {
   color: #38bdf8;
@@ -468,25 +469,4 @@ section h2 {
     max-height: 200px;
     min-height: 150px;
   }
-}
-
-/* === Хлебные крошки (п.6) === */
-.breadcrumbs {
-  padding: 15px 0;
-  font-size: 0.95rem;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.breadcrumbs a {
-  color: #38bdf8;
-  text-decoration: none;
-  font-weight: 500;
-}
-.breadcrumbs a:hover {
-  text-decoration: underline;
-}
-.breadcrumbs span {
-  margin: 0 8px;
-  color: #64748b;
 }
